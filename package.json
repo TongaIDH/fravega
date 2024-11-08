@@ -1,0 +1,26 @@
+{
+  "name": "fravega",
+  "version": "1.0.0",
+  "description": "challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TongaIDH/fravega.git"
+  },
+  "keywords": [
+    "fravega",
+    "challenge"
+  ],
+  "author": "TongaIDH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TongaIDH/fravega/issues"
+  },
+  "homepage": "https://github.com/TongaIDH/fravega#readme",
+  "dependencies": {
+    "cypress": "^13.15.2"
+  }
+}
