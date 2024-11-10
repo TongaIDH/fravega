@@ -21,10 +21,8 @@ desarrollo pero además skills de calidad.
 - Como usuario de Frávega quiero: 
     - Buscar un articulo en Tecnologia - Notebooks
     - Seleccionar el Filtro de Marca "Apple"
-    - Ordenar los articulos por menor precio
     - Seleccionar el 5to articulo de la grilla
-    - Verificar que llegue en 48hs
-
+    - Verificar que se visualice el label "Llega en 48hs"
 
 ### No Automatizado
 - Ingresar a la pagina : https://www.fravega.com/
