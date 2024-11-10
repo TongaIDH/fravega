@@ -6,6 +6,6 @@ module.exports = defineConfig({
 
     },
     baseUrl: "https://www.fravega.com",
-    experimentalRunAllSpecs: true,
+    experimentalRunAllSpecs: false,
   },
 });
