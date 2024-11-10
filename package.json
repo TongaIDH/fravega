@@ -1,0 +1,33 @@
+{
+  "name": "fravega",
+  "version": "1.0.0",
+  "description": "challenge",
+  "main": "index.js",
+  "scripts": {
+    "chrome:report": "cypress run --browser chrome",
+    "delete:results": "(rm -rf cypress/results || true) && (rm -rf mochawesome-report || true) && (rm -rf ./mochawesome.json)",
+    "merge:reports": "npx mochawesome-merge 'cypress/results/mochawesome/*.json' > mochawesome.json && npx marge mochawesome.json",
+    "show:report": "open mochawesome-report/mochawesome.html",
+    "complete:flow": "run-s --continue-on-error delete:results chrome:report merge:reports show:report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TongaIDH/fravega.git"
+  },
+  "keywords": [
+    "fravega",
+    "challenge"
+  ],
+  "author": "TongaIDH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TongaIDH/fravega/issues"
+  },
+  "homepage": "https://github.com/TongaIDH/fravega#readme",
+  "devDependencies": {
+    "cypress": "^13.15.2",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "npm-run-all": "^4.1.5"
+  }
+}

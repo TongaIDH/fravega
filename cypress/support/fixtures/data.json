@@ -1,0 +1,9 @@
+{
+  "useCase1": {
+    "product": "Heladera Samsung"
+  },
+  "useCase2": {
+    "brand": "Apple",
+    "deliveryTime": "48 Hs"
+  }
+}
