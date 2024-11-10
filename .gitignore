@@ -1,9 +1,10 @@
 # Node Modules
-node_modules
+node_modules/
 
 # Evidence
-downloads
-
+downloads/
 
 # Reports
-reports
+results/
+mochawesome-report
+mochawesome.json

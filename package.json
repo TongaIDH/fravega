@@ -4,7 +4,11 @@
   "description": "challenge",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run"
+    "chrome:report": "cypress run --browser chrome",
+    "delete:results": "(rm -rf cypress/results || true) && (rm -rf mochawesome-report || true) && (rm -rf ./mochawesome.json)",
+    "merge:reports": "npx mochawesome-merge 'cypress/results/mochawesome/*.json' > mochawesome.json && npx marge mochawesome.json",
+    "show:report": "open mochawesome-report/mochawesome.html",
+    "complete:flow": "run-s --continue-on-error delete:results chrome:report merge:reports show:report"
   },
   "repository": {
     "type": "git",
