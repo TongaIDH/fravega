@@ -7,21 +7,21 @@ export class CartPage extends HomePage {
         this.amountLabel = "#__next > div > div.sc-3f18c37f-0.cEDUdW > main > div.sc-ivTnkv.crGhDo > div.sc-bBrFuS.fUXLhG > div > div > div:nth-child(1) > div.sc-b6a50d62-6.XtMFe > div.sc-dmRblv.eHxglM > div > span.sc-f855981b-1.dbaZRm.num",
         this.product = product;
         this.amount = amount;
-    }
+    };
 
     // Asserting correct element to cart
-    AssertCorrectAdditionToCart(product) {
+    assertCorrectAdditionToCart(product) {
         cy.get(this.productLabel)
             .invoke("text")
-            .should("contain", product)
-    }
+            .should("contain", product);
+    };
 
     // Asserting correct amount added to cart
-    AssertCorrectAmountInCart(amount) {
+    assertCorrectAmountInCart(amount) {
         cy.get(this.amountLabel)
             .invoke("text")
             .should("eq", amount)
-    }
-}
+    };
+};
 
 export const cartPage = new CartPage();
