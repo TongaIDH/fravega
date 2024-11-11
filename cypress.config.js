@@ -15,4 +15,6 @@ module.exports = defineConfig({
     baseUrl: "https://www.fravega.com",
     experimentalRunAllSpecs: false,
   },
+  viewportWidth: 1920,
+  viewportHeight: 1080
 });

@@ -1,6 +1,8 @@
 {
+  "baseUrl": "https://www.fravega.com/",
   "useCase1": {
-    "product": "Heladera Samsung"
+    "product": "Heladera Samsung",
+    "amount": "1"
   },
   "useCase2": {
     "brand": "Apple",
