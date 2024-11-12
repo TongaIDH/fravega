@@ -10,18 +10,19 @@ export class HomePage {
         this.searchInput = "#__next > div.sc-dBFDNq.bfLtLE > header > div.sc-dwalKd.ciAlUp > form > fieldset > div.sc-dkmUuB.kufEAO > input";
         this.submitSearchButton = "#__next > div.sc-dBFDNq.bfLtLE > header > div.sc-dwalKd.ciAlUp > form > fieldset > div.sc-dkmUuB.kufEAO > button";
         this.notebooks =  "#__next > div.sc-dBFDNq.bfLtLE > div:nth-child(2) > div:nth-child(2) > a:nth-child(2)";
-        this.categoriesDropdown = "Categorías";
+        this.categoriesDropdown = ".sc-jEACwC > .sc-dAlyuH";
     };
 
-    visitPage(url) {
+    visitPage() {
         cy.DisableXhrAndFetchLogs();
         cy.visit(this.url);
         cy.url()
             .should('eq', baseUrl);
+        this.closeAddressPopUp();
     };
 
     // Close initial pop-up
-    closePopUp() {
+    closeAddressPopUp() {
         utils.assertVisibleAndClick(this.popUpButton);
     };
 
@@ -32,7 +33,7 @@ export class HomePage {
     };
 
     goToNotebooks(category) {
-        cy.contains(this.categoriesDropdown)
+        cy.get(this.categoriesDropdown)
             .click();
         cy.contains(category)
             .click();

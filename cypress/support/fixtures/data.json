@@ -7,8 +7,13 @@
   },
   "useCase2": {
     "category": "Tecnología",
-    "product": "notebooks",
+    "categoryToMatch": "tecnologia",
+    "subCategory": "Computacion",
+    "subCategoryToMatch": "informatica",
+    "product": "Notebooks",
+    "productToMatch": "notebooks",
     "brand": "Apple",
+    "brandToMatch": "apple",
     "position": 3,
     "deliveryTime": "Llega en 48hs"
   }

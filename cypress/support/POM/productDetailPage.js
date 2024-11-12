@@ -17,11 +17,12 @@ export class ProductDetailPage extends HomePage {
         .click();
     };
 
+    // Asserting correct delivery time for the product
     assertCorrectDeliveryTime(deliveryTime) {
         cy.get(this.deliveryTimeLabel)
             .invoke("text")
-            .should("eq", deliveryTime)
-    }
+            .should("eq", deliveryTime);
+    };
 };
 
 export const productDetailPage = new ProductDetailPage();

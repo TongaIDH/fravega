@@ -9,12 +9,17 @@ before('Page setup', () => {
     homePage.visitPage();
 });
 
-it('Should search and buy a product', () => {
-    homePage.closePopUp();
-    homePage.searchProduct(useCase1.product);
-    resultsGridPage.assertCorrectSearch();
-    resultsGridPage.selectElement(useCase1.position);
-    productDetailPage.assertStockAndBuy();
-    cartPage.assertCorrectAdditionToCart(useCase1.product);
-    cartPage.assertCorrectAmountInCart(useCase1.amount);
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+});
+
+describe("useCase1", () => {
+    it('Should search and buy a product', () => {
+        homePage.searchProduct(useCase1.product);
+        resultsGridPage.assertCorrectSearch();
+        resultsGridPage.selectElement(useCase1.position);
+        productDetailPage.assertStockAndBuy();
+        cartPage.assertCorrectAdditionToCart(useCase1.product);
+        cartPage.assertCorrectAmountInCart(useCase1.amount);
+    });
 });

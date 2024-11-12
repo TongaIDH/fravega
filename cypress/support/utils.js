@@ -17,6 +17,14 @@ export class Utils {
             .should("be.visible")
             .type(product);
     };
+
+    assertTextIsEqual() {
+
+    }
+
+    assertTextIsIncluded() {
+
+    }
 };
 
 export const utils = new Utils();

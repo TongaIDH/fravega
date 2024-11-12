@@ -8,20 +8,18 @@ before('Page setup', () => {
     homePage.visitPage();
 })
 
-it('Should search a product and assert its delivery time', () => {
-    //COMPLETE
-    homePage.closePopUp();
-    homePage.goToNotebooks(useCase2.category);
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+    });
 
-    resultsGridPage.assertCorrectfilter(useCase2.product);
-
-    // //WORKING
-    // resultsGridPage.filterByBrand(useCase2.brand);
-
-    // //WORKING
-    // resultsGridPage.assertCorrectFilter(useCase2.brand);
-    
-    //COMPLETE
-    resultsGridPage.selectElement(useCase2.position);
-    productDetailPage.assertCorrectDeliveryTime(useCase2.deliveryTime);
+describe("useCase2", () => {
+    it('Should search a product and assert its delivery time', () => {
+        homePage.goToNotebooks(useCase2.category);
+        resultsGridPage.assertCorrectFilter(useCase2.productToMatch)
+        resultsGridPage.filterByBrand(useCase2.brand);
+        resultsGridPage.assertCorrectFilter(useCase2.brandToMatch);
+        resultsGridPage.selectElement(useCase2.position);
+        productDetailPage.assertCorrectDeliveryTime(useCase2.deliveryTime);
+    });
 });
+
