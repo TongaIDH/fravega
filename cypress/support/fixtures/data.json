@@ -8,8 +8,6 @@
   "useCase2": {
     "category": "Tecnología",
     "categoryToMatch": "tecnologia",
-    "subCategory": "Computacion",
-    "subCategoryToMatch": "informatica",
     "product": "Notebooks",
     "productToMatch": "notebooks",
     "brand": "Apple",
