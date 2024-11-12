@@ -18,10 +18,10 @@ describe("useCase2", () => {
             useCase2.category,
             useCase2.product
         );
-        resultsGridPage.assertCorrectFilter(useCase2.productToMatch)
+        resultsGridPage.assertCorrectFilterIsApplied(useCase2.productToMatch)
         resultsGridPage.filterByBrand(useCase2.brand);
-        resultsGridPage.assertCorrectFilter(useCase2.brandToMatch);
-        resultsGridPage.selectElement(useCase2.position);
+        resultsGridPage.assertCorrectFilterIsApplied(useCase2.brandToMatch);
+        resultsGridPage.selectGridElement(useCase2.position);
         productDetailPage.assertTwoDaysDeliveryTime(useCase2.deliveryTime);
     });
 });

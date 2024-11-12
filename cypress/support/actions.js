@@ -26,33 +26,19 @@ export class Actions {
             .should("contain", product);
     };
 
-    // Assert a given component is visible and clicking it
-    assertVisibleAndClick(selector) {
-        cy.get(selector)
-            .should("be.visible")
-            .click();
-    };
-
-    // Assert a given component is visible and typing it
-    assertVisibleAndType(selector, product) {
-        cy.get(selector)
-            .should("be.visible")
-            .type(product);
-    };
-
     // [PENDING] Assert that the current text is equal compared to a given value
     assertTextIsEqual() {
-
+        // PENDING
     };
 
     // [PENDING] Assert that the current text contains a given value
     assertTextIsIncluded() {
-
+        // PENDING
     };
 
     // [PENDING] Assert that the current URL contains a given text
     assertUrlContainsText() {
-
+        // PENDING
     };
 
     // Assert that the current URL is equal compared to given a value
@@ -60,9 +46,23 @@ export class Actions {
         cy.url()
             .should('eq', baseUrl);
     };
-    
+
+    // Assert a given component is visible and click on it
+    assertVisibleAndClick(selector) {
+        cy.get(selector)
+        .should("be.visible")
+        .click();
+    }
+
+    // Assert a given component is visible and type on it
+    assertVisibleAndType(selector, product) {
+        cy.get(selector)
+            .should("be.visible")
+            .type(product);
+    };
+
     // Close a given PopUp
-    closePopUp(popUpButton){
+    closePopUp(popUpButton) {
         this.assertVisibleAndClick(popUpButton);
     };
 
@@ -81,6 +81,13 @@ export class Actions {
         this.goToPage(url, baseUrl);
     };
 
+    // Filter by a given brand
+    filterByBrand(selector) {
+        cy.get(selector)
+            .scrollIntoView()
+            .click({ force: true });
+    };
+
     // Navigate to a page and assert the URL
     goToPage() {
         cy.visit(url);
@@ -95,6 +102,17 @@ export class Actions {
             .trigger('mouseover');
         cy.contains(product)
             .click();
+    };
+
+    verifySearchUrlIsCorrect(baseUrl, keyword) {
+        cy.url()
+            .should("include", baseUrl)
+            .and("include", keyword);
+    };
+
+    verifyAppliedFilterIsCorrect(filterValue) {
+        cy.url()
+            .should("include", filterValue);
     };
 };
 

@@ -18,11 +18,9 @@ export class ProductDetailPage extends HomePage {
     };
 
     // Asserting correct delivery time for the product
-    assertCorrectDeliveryTime(deliveryTime) {
+    assertTwoDaysDeliveryTime(deliveryTime) {
         cy.get(this.deliveryTimeLabel)
             .invoke("text")
             .should("eq", deliveryTime);
     };
 };
-
-export const productDetailPage = new ProductDetailPage();

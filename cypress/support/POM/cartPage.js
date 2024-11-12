@@ -19,5 +19,3 @@ export class CartPage extends HomePage {
         actions.assertAmountInCart(this.amountLabel, amount);
     };
 };
-
-export const cartPage = new CartPage();

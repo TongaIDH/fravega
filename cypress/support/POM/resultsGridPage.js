@@ -14,38 +14,29 @@ export class ResultsGridPage extends HomePage {
         this.appleFilterCheckbox = ":nth-child(5) > .sc-4cab333d-0 > .sc-f8576aa3-0 > span";
     };
 
-    // Asserting correct search
-    assertCorrectSearch() {
-        // actions.assertProductSearchUrl
-        cy.url()
-            .should("include", baseUrl)
-            .and("include", this.keyword);
+    // Assert correct product search
+    assertCorrectProductSearch() {
+        actions.verifySearchUrlIsCorrect(baseUrl, this.keyword)
     };
 
-    // Asserting correct filter
-    assertCorrectFilter(filterValue) {
-        cy.url()
-            .should("include", filterValue);
+    // Assert correct filter applied
+    assertCorrectFilterIsApplied(filterValue) {
+        actions.verifyAppliedFilterIsCorrect(filterValue)
     };
 
-    // Selecting second element
-    selectElement(position) {
+    // Select a given grid element
+    selectGridElement(position) {
         if (position === 2) {
             actions.assertVisibleAndClick(this.secondPositionElement);
-        };
-        if (position === 3) {
+        } else if (position === 3) {
             actions.assertVisibleAndClick(this.thirdPositionElement);
         };
     };
 
+    //Filter by Apple brand using checkbox
     filterByBrand(brand) {
-        // this.closeAddressPopUp();
-        if(brand === "Apple"){
-            cy.get(this.appleFilterCheckbox)
-                .scrollIntoView()
-                .click({ force: true });
-        } 
+        if (brand === "Apple") {
+            actions.filterByBrand(this.appleFilterCheckbox)
+        }
     };
 };
-
-export const resultsGridPage = new ResultsGridPage();

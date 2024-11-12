@@ -16,8 +16,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 describe("useCase1", () => {
     it('Should search and buy a product', () => {
         homePage.searchProduct(useCase1.product);
-        resultsGridPage.assertCorrectSearch();
-        resultsGridPage.selectElement(useCase1.position);
+        resultsGridPage.assertCorrectProductSearch();
+        resultsGridPage.selectGridElement(useCase1.position);
         productDetailPage.assertStockAndBuy();
         cartPage.assertCorrectProductAddition(useCase1.product);
         cartPage.assertCorrectProductAmount(useCase1.amount);
