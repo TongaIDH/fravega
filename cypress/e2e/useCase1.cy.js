@@ -9,14 +9,12 @@ before('Page setup', () => {
     homePage.visitPage(baseUrl);
 });
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-});
+actions.disableExceptions();
 
 describe("useCase1", () => {
     it('Should search and buy a product', () => {
         homePage.searchProduct(useCase1.product);
-        resultsGridPage.assertCorrectProductSearch();
+        resultsGridPage.assertCorrectProductSearch(baseUrl);
         resultsGridPage.selectGridElement(useCase1.position);
         productDetailPage.assertStockAndBuy();
         cartPage.assertCorrectProductAddition(useCase1.product);

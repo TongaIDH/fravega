@@ -1,10 +1,10 @@
 import { actions } from "../actions";
-
+import { baseUrl } from "../fixtures/data.json"
 export class HomePage {
-    constructor(product, category) {
+    constructor(category, endpoint, product) {
         this.category = category;
+        this.endpoint = endpoint;
         this.product = product;
-        this.url = "";
         this.categoriesDropdown = ".sc-jEACwC > .sc-dAlyuH";
         this.popUpButton = "#modal > div.sc-kgOKUu.pmMMW.sc-fmzyuX.jiZBaZ > button";
         this.searchInput = "#__next > div.sc-dBFDNq.bfLtLE > header > div.sc-dwalKd.ciAlUp > form > fieldset > div.sc-dkmUuB.kufEAO > input";
@@ -13,8 +13,8 @@ export class HomePage {
     };
 
     // Visit the page and close the initial pop-up
-    visitPage(baseUrl) {
-        actions.goToPage(this.url, baseUrl);
+    visitPage(endpoint) {
+        actions.disableLogsAndNavigate(endpoint, baseUrl);
         actions.closePopUp(this.popUpButton);
     };
 

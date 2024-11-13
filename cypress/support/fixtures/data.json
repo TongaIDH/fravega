@@ -1,5 +1,6 @@
 {
   "baseUrl": "https://www.fravega.com/",
+  "homePageEndpoint": "",
   "useCase1": {
     "position": 2,
     "product": "Heladera Samsung",

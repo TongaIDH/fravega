@@ -15,13 +15,13 @@ export class ResultsGridPage extends HomePage {
     };
 
     // Assert correct product search
-    assertCorrectProductSearch() {
-        actions.verifySearchUrlIsCorrect(baseUrl, this.keyword)
+    assertCorrectProductSearch(baseUrl) {
+        actions.assertSearchUrlIsCorrect(baseUrl, this.keyword)
     };
 
     // Assert correct filter applied
     assertCorrectFilterIsApplied(filterValue) {
-        actions.verifyAppliedFilterIsCorrect(filterValue)
+        actions.assertAppliedFilterIsCorrect(filterValue)
     };
 
     // Select a given grid element

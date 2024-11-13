@@ -1,64 +1,86 @@
 export class Actions {
-    constructor(amount, amountLabelSelector, category, dropdownOption, popUpButton, product, productLabelSelector, selector, url) {
+    constructor(
+        amount,
+        baseUrl,
+        category,
+        deliveryTime,
+        endpoint,
+        popUpButton,
+        product,
+        selector,
+        value
+    ) {
         this.amount = amount;
-        this.amountLabelSelector = amountLabelSelector;
         this.baseUrl = baseUrl;
         this.category = category;
-        this.dropdownOption = dropdownOption;
+        this.deliveryTime = deliveryTime;
+        this.endpoint = endpoint;
         this.popUpButton = popUpButton;
         this.product = product;
-        this.productLabelSelector = productLabelSelector
         this.selector = selector;
-        this.url = url;
+        this.value = value;
     };
 
-    // Assert a given amount is available on cart for a product
-    assertAmountInCart() {
-        cy.get(this.amountLabel)
+    // Assert that a given amount is available in cart for a product
+    assertAmountInCart(selector, value) {
+        cy.get(selector)
             .invoke("text")
             .should("eq", amount);
     };
 
-    // Assert a given product is available on cart
-    assertProductInCart(productLabelSelector, product) {
-        cy.get(productLabelSelector)
+    // Assert that the current URL contains a given filter
+    assertAppliedFilterIsCorrect(value) {
+        cy.url()
+            .should("include", value);
+    };
+
+    // Assert that a given delivery time is correct
+    assertDeliveryTime(selector, deliveryTime) {
+        cy.get(selector)
+            .invoke("text")
+            .should("eq", deliveryTime);
+    };
+
+    // Assert that a given product is available on cart
+    assertProductInCart(selector, product) {
+        cy.get(selector)
             .invoke("text")
             .should("contain", product);
     };
 
-    // [PENDING] Assert that the current text is equal compared to a given value
-    assertTextIsEqual() {
-        // PENDING
-    };
-
-    // [PENDING] Assert that the current text contains a given value
-    assertTextIsIncluded() {
-        // PENDING
-    };
-
-    // [PENDING] Assert that the current URL contains a given text
-    assertUrlContainsText() {
-        // PENDING
+    // Assert that the current URL is equal compared to a given value
+    assertSearchUrlIsCorrect(baseUrl, value) {
+        cy.url()
+            .should("include", baseUrl)
+            .and("include", value);
     };
 
     // Assert that the current URL is equal compared to given a value
-    assertUrlIsEqual() {
+    assertUrlIsEqual(baseUrl) {
         cy.url()
             .should('eq', baseUrl);
     };
 
-    // Assert a given component is visible and click on it
+    // Assert that a given component is visible and click on it
     assertVisibleAndClick(selector) {
         cy.get(selector)
-        .should("be.visible")
-        .click();
+            .should("be.visible")
+            .click();
     }
 
-    // Assert a given component is visible and type on it
+    // Assert that a given component is visible and type on it
     assertVisibleAndType(selector, product) {
         cy.get(selector)
             .should("be.visible")
             .type(product);
+    };
+
+    // Assert that a given product has stock and click to buy it
+    buyProduct(selector, value) {
+        cy.get(selector)
+            .should("be.visible")
+            .and("have.text", value)
+            .click();
     };
 
     // Close a given PopUp
@@ -76,9 +98,9 @@ export class Actions {
     };
 
     // Disable Fetch and Xhr logs and navigate to page
-    disableLogsAndNavigate(url, baseUrl) {
+    disableLogsAndNavigate(endpoint, baseUrl) {
         this.disableXhrAndFetch();
-        this.goToPage(url, baseUrl);
+        this.goToPage(endpoint, baseUrl);
     };
 
     // Filter by a given brand
@@ -88,31 +110,20 @@ export class Actions {
             .click({ force: true });
     };
 
-    // Navigate to a page and assert the URL
-    goToPage() {
-        cy.visit(url);
+    // Navigate to a given page and assert the URL
+    goToPage(endpoint, baseUrl) {
+        cy.visit(endpoint);
         this.assertUrlIsEqual(baseUrl);
     };
 
     // Filter a given product type through header dropdown's options
-    goToSpecificProductType(category, dropdownOption, product) {
-        cy.get(dropdownOption)
+    goToSpecificProductType(category, selector, product) {
+        cy.get(selector)
             .trigger('mouseover');
         cy.contains(category)
             .trigger('mouseover');
         cy.contains(product)
             .click();
-    };
-
-    verifySearchUrlIsCorrect(baseUrl, keyword) {
-        cy.url()
-            .should("include", baseUrl)
-            .and("include", keyword);
-    };
-
-    verifyAppliedFilterIsCorrect(filterValue) {
-        cy.url()
-            .should("include", filterValue);
     };
 };
 
