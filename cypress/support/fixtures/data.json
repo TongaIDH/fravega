@@ -1,5 +1,8 @@
 {
-  "baseUrl": "https://www.fravega.com/",
+  "urls": {
+    "baseUrl": "https://www.fravega.com/",
+    "homePageEndpoint": ""
+  },
   "useCase1": {
     "position": 2,
     "product": "Heladera Samsung",
@@ -8,8 +11,6 @@
   "useCase2": {
     "category": "Tecnología",
     "categoryToMatch": "tecnologia",
-    "subCategory": "Computacion",
-    "subCategoryToMatch": "informatica",
     "product": "Notebooks",
     "productToMatch": "notebooks",
     "brand": "Apple",
