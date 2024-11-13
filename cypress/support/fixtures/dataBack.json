@@ -1,8 +1,13 @@
 {
     "baseUrl": "https://gorest.co.in/",
     "endpoints": {
-        "getUsers": "public/v2/users/",
-        "postUser": ""
+        "users": "public/v2/users/"
     },
-    "payload": "something"
+    "payload": {
+        "name": "Gaston Garcia",
+        "email": "gastonga@gmail.com",
+        "gender": "male",
+        "status": "active"
+    },
+    "token": "Bearer d02d1b1982275e7e39a5af2d82440224e1decfff643ae32c465869f57e92821f"
 }

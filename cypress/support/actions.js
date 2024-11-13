@@ -125,6 +125,10 @@ export class Actions {
         cy.contains(product)
             .click();
     };
+
+    randomNumber() {
+        return Math.floor(Math.random() * 1000000);
+    }
 };
 
 export const actions = new Actions();
