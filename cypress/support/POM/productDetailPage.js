@@ -2,7 +2,10 @@ import { actions } from "../actions";
 import { HomePage } from "./homePage";
 
 export class ProductDetailPage extends HomePage {
-    constructor(props, deliveryTime) {
+    constructor(
+        props,
+        deliveryTime
+    ) {
         super(props);
         this.deliveryTime = deliveryTime;
         this.textToCompare = "Comprar";

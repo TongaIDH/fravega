@@ -1,19 +1,19 @@
 /// <reference types="cypress" />
-import { urls, useCase1, useCase2 } from "../support/fixtures/data.json";
+import { urls, useCase1, useCase2 } from "../support/fixtures/dataFront.json";
 import { homePage } from "../support/POM/homePage";
 import { resultsGridPage } from "../support/POM/resultsGridPage";
 import { productDetailPage } from "../support/POM/productDetailPage";
 import { cartPage } from "../support/POM/cartPage";
-
-beforeEach('Page setup', () => {
-    homePage.visitPage(urls.baseUrl);
-});
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 });
 
 describe("FrontEnd Challenge", () => {
+    beforeEach('Page setup', () => {
+        homePage.visitPage(urls.baseUrl);
+    });
+    
     it('Use Case 1 - Should search and buy a product', () => {
         homePage.searchProduct(useCase1.product);
         resultsGridPage.assertCorrectProductSearch(urls.baseUrl);

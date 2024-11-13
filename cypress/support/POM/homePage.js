@@ -1,7 +1,11 @@
 import { actions } from "../actions";
-import { urls, useCase1, useCase2 } from "../fixtures/data.json"
+import { urls } from "../fixtures/dataFront.json"
 export class HomePage {
-    constructor(category, endpoint, product) {
+    constructor(
+        category,
+        endpoint,
+        product
+    ) {
         this.category = category;
         this.endpoint = endpoint;
         this.product = product;
@@ -9,11 +13,11 @@ export class HomePage {
         this.popUpButton = "#modal > div.sc-kgOKUu.pmMMW.sc-fmzyuX.jiZBaZ > button";
         this.searchInput = "#__next > div.sc-dBFDNq.bfLtLE > header > div.sc-dwalKd.ciAlUp > form > fieldset > div.sc-dkmUuB.kufEAO > input";
         this.submitSearchButton = "#__next > div.sc-dBFDNq.bfLtLE > header > div.sc-dwalKd.ciAlUp > form > fieldset > div.sc-dkmUuB.kufEAO > button";
-        this.notebooks =  "#__next > div.sc-dBFDNq.bfLtLE > div:nth-child(2) > div:nth-child(2) > a:nth-child(2)";
+        this.notebooks = "#__next > div.sc-dBFDNq.bfLtLE > div:nth-child(2) > div:nth-child(2) > a:nth-child(2)";
     };
 
     // Visit the page and close the initial pop-up
-    visitPage(endpoint, ) {
+    visitPage(endpoint,) {
         actions.disableLogsAndNavigate(endpoint, urls.baseUrl);
         actions.closePopUp(this.popUpButton);
     };

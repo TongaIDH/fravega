@@ -1,9 +1,13 @@
 import { HomePage } from "./homePage";
 import { actions } from "../actions";
-import { baseUrl } from "../fixtures/data.json"
 
 export class ResultsGridPage extends HomePage {
-    constructor(props, position, filterValue, brand) {
+    constructor(
+        props,
+        position,
+        filterValue,
+        brand
+    ) {
         super(props);
         this.position = position;
         this.filterValue = filterValue;
