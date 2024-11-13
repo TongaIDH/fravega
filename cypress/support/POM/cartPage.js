@@ -2,7 +2,10 @@ import { actions } from "../actions";
 import { HomePage } from "./homePage";
 
 export class CartPage extends HomePage {
-    constructor(amount, props) {
+    constructor(
+        props,
+        amount
+    ) {
         super(props);
         this.amount = amount;
         this.amountLabel = "#__next > div > div.sc-3f18c37f-0.cEDUdW > main > div.sc-ivTnkv.crGhDo > div.sc-bBrFuS.fUXLhG > div > div > div:nth-child(1) > div.sc-b6a50d62-6.XtMFe > div.sc-dmRblv.eHxglM > div > span.sc-f855981b-1.dbaZRm.num";
