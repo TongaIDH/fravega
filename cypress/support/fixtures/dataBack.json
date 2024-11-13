@@ -1,8 +1,7 @@
 {
     "baseUrl": "https://gorest.co.in/",
     "endpoints": {
-        "getOne": "public/v2/users/id",
-        "getAll": "public/v2/users",
+        "getUsers": "public/v2/users/",
         "postUser": ""
     },
     "payload": "something"
