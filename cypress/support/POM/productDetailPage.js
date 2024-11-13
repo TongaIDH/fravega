@@ -20,3 +20,5 @@ export class ProductDetailPage extends HomePage {
         actions.assertDeliveryTime(this.deliveryTimeLabel, deliveryTime)
     };
 };
+
+export const productDetailPage = new ProductDetailPage();

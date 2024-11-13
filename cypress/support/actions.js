@@ -22,14 +22,14 @@ export class Actions {
     };
 
     // Assert that a given amount is available in cart for a product
-    assertAmountInCart(selector, value) {
+    assertAmountInCart(selector, amount) {
         cy.get(selector)
             .invoke("text")
             .should("eq", amount);
     };
 
     // Assert that the current URL contains a given filter
-    assertAppliedFilterIsCorrect(value) {
+    assertAppliedFilter(value) {
         cy.url()
             .should("include", value);
     };
@@ -117,8 +117,8 @@ export class Actions {
     };
 
     // Filter a given product type through header dropdown's options
-    goToSpecificProductType(category, selector, product) {
-        cy.get(selector)
+    goToSpecificProductType(categoriesDropdown, category, product) {
+        cy.get(categoriesDropdown)
             .trigger('mouseover');
         cy.contains(category)
             .trigger('mouseover');

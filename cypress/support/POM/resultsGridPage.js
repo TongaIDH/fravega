@@ -11,7 +11,7 @@ export class ResultsGridPage extends HomePage {
         this.keyword = "keyword=Heladera+Samsung";
         this.secondPositionElement = "#__next > div.sc-dBFDNq.bfLtLE > div.sc-7ca66079-0.cvEICa > div.sc-7ca66079-3.gWWwSt > div.sc-7ca66079-6.kaZkPk > ul > li:nth-child(3)";
         this.thirdPositionElement = '[href="/p/macbook-pro-13-m2-chip-8-core-cpu-10-core-gpu-512gb-ssd-space-grey-990020955/"] > .sc-812c6cb5-0 > .sc-3ad84bfe-0 > .sc-95e993ee-5 > .sc-ca346929-0';
-        this.appleFilterCheckbox = ":nth-child(5) > .sc-4cab333d-0 > .sc-f8576aa3-0 > span";
+        this.appleFilterCheckbox = "#brand-filter-checkbox-apple-Apple-25";
     };
 
     // Assert correct product search
@@ -21,7 +21,7 @@ export class ResultsGridPage extends HomePage {
 
     // Assert correct filter applied
     assertCorrectFilterIsApplied(filterValue) {
-        actions.assertAppliedFilterIsCorrect(filterValue)
+        actions.assertAppliedFilter(filterValue)
     };
 
     // Select a given grid element
@@ -40,3 +40,5 @@ export class ResultsGridPage extends HomePage {
         }
     };
 };
+
+export const resultsGridPage = new ResultsGridPage();

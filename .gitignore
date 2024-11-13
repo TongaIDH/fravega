@@ -3,8 +3,9 @@ node_modules/
 
 # Evidence
 downloads/
+screenshots/
 
 # Reports
 results/
-mochawesome-report
+mochawesome-report/
 mochawesome.json

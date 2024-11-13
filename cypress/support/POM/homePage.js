@@ -1,5 +1,5 @@
 import { actions } from "../actions";
-import { baseUrl } from "../fixtures/data.json"
+import { urls, useCase1, useCase2 } from "../fixtures/data.json"
 export class HomePage {
     constructor(category, endpoint, product) {
         this.category = category;
@@ -13,8 +13,8 @@ export class HomePage {
     };
 
     // Visit the page and close the initial pop-up
-    visitPage(endpoint) {
-        actions.disableLogsAndNavigate(endpoint, baseUrl);
+    visitPage(endpoint, ) {
+        actions.disableLogsAndNavigate(endpoint, urls.baseUrl);
         actions.closePopUp(this.popUpButton);
     };
 
