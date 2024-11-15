@@ -22,7 +22,7 @@ describe("Backend Challenge", () => {
             body: body
         }).as("newUser").then((response) => {
             expect(response.status).to.equal(201);
-            console.log(response.body)
+            // console.log(response.body)
             expect(response.body.name).to.equal(body.name);
             expect(response.body.email).to.equal(body.email);
             expect(response.body.gender).to.equal(body.gender);
