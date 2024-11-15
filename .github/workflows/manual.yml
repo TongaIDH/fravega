@@ -1,0 +1,16 @@
+name: Manual workflow
+
+on:
+    workflow_dispatch:
+        
+jobs:
+    runTests:
+        runs-on: ubuntu-22.04
+        
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+            - name: cypress test cases
+              uses: cypress-io/github-action@v2.9.7
+              with:
+                start: npm run complete:flow
