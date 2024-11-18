@@ -8,15 +8,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      # and run all Cypress tests
-      - name: Install dependencies
-        uses: ./
-        with:
-           start: npm install
            
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: npm run build
-          start: npm run complete:flow
+          start: npx cypress run --browser -chrome
