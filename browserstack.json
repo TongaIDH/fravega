@@ -1,0 +1,25 @@
+{
+    "auth": {
+        "username": "gastongarciaalva_5LcCfv",
+        "access_key": "GqvcSNFRxpWsqUEVPC61"
+    },
+    "browsers": [
+        {
+            "browser": "chrome",
+            "os": "Windows 10",
+            "versions": [
+                "latest",
+                "latest - 1"
+            ]
+        }
+    ],
+    "run_settings": {
+        "network_logs": true,
+        "cypress_config_file": "./cypress.config.js",
+        "npm_dependencies": {
+            "cypress": "13.15.2"
+        },
+        "project_name": "Cypress BrowserStack Example",
+        "parallels": 2
+    }
+}
