@@ -1,16 +1,17 @@
-name: Manual workflow
+name: Run Cypress Tests
 
-on:
-    workflow_dispatch:
-        
+on: workflow_dispatch
+
 jobs:
-    runTests:
-        runs-on: ubuntu-22.04
-        
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v1
-            - name: cypress test cases
-              uses: cypress-io/github-action@v2.9.7
-              with:
-                start: npm run complete:flow
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm run complete:flow
