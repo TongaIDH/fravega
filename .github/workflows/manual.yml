@@ -13,11 +13,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Steps
-        run: echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
-        
+
+      - name: Set the value
+        run: |
+          echo "{steps}" >> $GITHUB_STEP_SUMMARY
+
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           start: npx cypress run
+
+      - name: Use the value
+        run: |
+          printf '%s\n' "$steps"
