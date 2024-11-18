@@ -26,7 +26,7 @@ describe("FrontEnd Challenge", () => {
     });
 
     it('Use Case 2 - Should search a product and assert its delivery time', () => {
-        console.log("something")
+        console.log("something else")
         // homePage.goToNotebooks(
         //     useCase2.category,
         //     useCase2.product
